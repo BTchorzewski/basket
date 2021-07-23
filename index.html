@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basket</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header>
+    <h1>Shop for wizards</h1>
+</header>
+<main>
+    <section class="products">
+        <ul class="products__list">
+            <li class="products__item">
+                <strong>chocolate frog - 2 zł</strong>
+                <button class="products__button" data-name="chocolate frog" data-price="2"  data-id="0">Kup</button>
+            </li>
+            <li class="products__item">
+                <strong>white chocolate frog - 4 zł</strong>
+                <button class="products__button"  data-name="white chocolate frog" data-price="4" data-id="1">Kup</button>
+            </li>
+            <li class="products__item">
+                <strong>Nimbus 2000 - 1000zł</strong>
+                <button class="products__button" data-name="Nimbus 2000" data-price="1000" data-id="2">Kup</button>
+            </li>
+        </ul>
+    </section>
+    <section class="admin">
+        <h2>Dodaj produkt:</h2>
+        <form action="" class="admin__form form">
+            <input type="text" name="name">
+            <input type="number" name="price">
+            <button class="submit addNewProductBtn">dodaj produkt</button>
+        </form>
+    </section>
+    <section class="basket">
+        <ul class="basket__list">
+
+        </ul>
+        <button class="basket__btn orderBtn"></button>
+        <button class="basket__btn-clear">wyczyść koszyk</button>
+    </section>
+</main>
+<script src="src/basket.js"></script>
+<script src="src/shop.js"></script>
+<script src="src/product.js"></script>
+<script src="src/basketInterface.js"></script>
+<script src="src/admin.js"></script>
+</body>
+</html>
