@@ -1,6 +1,7 @@
 const productList = document.querySelector('.products__list');
 const allBuyBtn = document.querySelectorAll('.products__button');
 const basketList = document.querySelector('.basket__list');
+const clearBtn = document.querySelector('.basket__btn-clear');
 const basket = new Basket();
 
 
@@ -10,6 +11,7 @@ const basket = new Basket();
 
 
 function renderBasketInterface() {
+
     renderProductInBasket()
     renderOrderButton();
 }
@@ -69,6 +71,7 @@ function removeProduct(event) {
 
 function clearBasket() {
     basket.clear();
+    renderBasketInterface()
 }
 
 renderBasketInterface()
@@ -76,3 +79,5 @@ renderBasketInterface()
 for (const btn of allBuyBtn) {
     btn.addEventListener('click', addProductToBasket);
 }
+
+clearBtn.addEventListener('click', clearBasket);

@@ -18,8 +18,8 @@ class Basket {
     }
 
     clear() {
-        this.clearStorage();
         this.items = [];
+        this.clearStorage();
     }
 
     getItems() {
@@ -46,9 +46,9 @@ class Basket {
     setStorage() {
         localStorage.setItem('basket', JSON.stringify(this.items));
     }
-    //@todo implement this feature
+
     clearStorage() {
-        localStorage.setItem('basket', JSON.stringify([]));
+        localStorage.removeItem('basket');
     }
 };
 
