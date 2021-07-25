@@ -5,13 +5,7 @@ const clearBtn = document.querySelector('.basket__btn-clear');
 const basket = new Basket();
 
 
-
-
-
-
-
 function renderBasketInterface() {
-
     renderProductInBasket()
     renderOrderButton();
 }
@@ -55,10 +49,9 @@ function addProductToBasket(event) {
     event.preventDefault();
     //destructuring data elements.
     const {id, name, price} = event.target.dataset;
-    const product = new Product(Number(id), name, price);
+    const product = new Product(id, name, price);
     basket.add(product);
     renderBasketInterface();
-
 }
 
 function removeProduct(event) {

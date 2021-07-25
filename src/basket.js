@@ -16,7 +16,9 @@ class Basket {
         this.items.splice(index, 1);
         this.setStorage()
     }
-
+    replaceAll(arr) {
+        this.items = arr;
+    }
     clear() {
         this.items = [];
         this.clearStorage();

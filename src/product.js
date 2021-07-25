@@ -4,6 +4,7 @@ class Product {
         this.id = productId
         this.name = productName
         this.price = productPrice
+        this.amount = 0;
     }
 };
 

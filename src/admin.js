@@ -2,15 +2,19 @@ const shop = new Shop();
 
 
 function clearProductsFromShop() {
+    shop.getItems().forEach(product=>{
+        basket.remove(product.id)
+    })
     shop.clear();
+
 }
 
 function renderAdminInterface() {
     const addProductBtn = document.querySelector('.addNewProductBtn')
     const clearBtn = document.querySelector('.clearShop');
-    renderProducts()
     addProductBtn.addEventListener('click', addProductToShop);
     clearBtn.addEventListener('click', clearProductsFromShop)
+    renderProducts()
 }
 
 function addProductToShop(event) {
@@ -23,8 +27,6 @@ function addProductToShop(event) {
 
     const product = new Product(shop.getItems().length+3,productName, Number(productPrice))
     shop.add(product);
-    productName = null;
-    productPrice = null;
     renderProducts();
 
 }
@@ -33,13 +35,19 @@ function removeProductFromShop(event) {
     event.preventDefault();
     const {id} = event.target.dataset;
     shop.remove(id);
+    //if a product is removed form shop. A client can't buy it.
+    const updatedBasket = basket.getItems().filter(product=>{
+        return product.id !== id;
+    })
+    basket.replaceAll(updatedBasket);
     event.target.parentElement.remove();
     renderProducts();
+    renderProductInBasket();
 }
 
 function renderProducts() {
-    const productsList = document.querySelector('.products__list');
-
+    const productsList = document.querySelector('.products__list-new');
+    productsList.textContent = '';
     for (const {id, name, price} of shop.getItems()) {
         const li = document.createElement('li');
         const strong = document.createElement('strong');
