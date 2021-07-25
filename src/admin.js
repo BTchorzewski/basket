@@ -1,10 +1,16 @@
 const shop = new Shop();
 
 
+function clearProductsFromShop() {
+    shop.clear();
+}
+
 function renderAdminInterface() {
     const addProductBtn = document.querySelector('.addNewProductBtn')
+    const clearBtn = document.querySelector('.clearShop');
     renderProducts()
     addProductBtn.addEventListener('click', addProductToShop);
+    clearBtn.addEventListener('click', clearProductsFromShop)
 }
 
 function addProductToShop(event) {

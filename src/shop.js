@@ -18,17 +18,12 @@ class Shop {
 
     clear() {
         this.items= [];
-        this.setStorage();
+        this.clearStoreage()
     }
 
     getItems() {
         return this.items;
     }
-
-    showShop() {
-        console.log(this.getItems());
-    }
-
     getStorage() {
         if (!!localStorage.getItem('shop')) {
             return JSON.parse(localStorage.getItem('shop'))
@@ -39,6 +34,9 @@ class Shop {
 
     setStorage() {
         localStorage.setItem('shop', JSON.stringify(this.items));
+    }
+    clearStoreage() {
+        localStorage.removeItem('shop');
     }
 };
 
